@@ -13,7 +13,7 @@ set -ouex pipefail
 dnf5 install -y tmux btop
 
 mkdir -p /etc/trash2
-echo "hello there" >/etc/trash2/message.txt
+echo "hello there this time it's serial" >/etc/trash2/message.txt
 
 # Use a COPR Example:
 #
