@@ -12,6 +12,7 @@ set -ouex pipefail
 # this installs a package from fedora repos
 dnf5 install -y tmux btop
 
+touch /opt/message.txt
 echo "hello there" >/opt/message.txt
 
 # Use a COPR Example:
