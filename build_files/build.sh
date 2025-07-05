@@ -16,6 +16,8 @@ mkdir -p /etc/trash2
 echo "hello there this time it's serial" >/etc/trash2/message.txt
 echo "another one" >/etc/trash3/message.txt
 
+printf '[Timer]\nOnUnitInactiveSec=1min\nPersistent=true\n' >/etc/systemd/system/rpm-ostreed-automatic.timer.d/override.conf
+
 # Use a COPR Example:
 #
 # dnf5 -y copr enable ublue-os/staging
