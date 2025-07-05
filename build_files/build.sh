@@ -14,6 +14,7 @@ dnf5 install -y tmux btop
 
 mkdir -p /etc/trash2
 echo "hello there this time it's serial" >/etc/trash2/message.txt
+echo "another one" >/etc/trash3/message.txt
 
 # Use a COPR Example:
 #
