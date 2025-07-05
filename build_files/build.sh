@@ -15,6 +15,7 @@ dnf5 install -y tmux btop
 mkdir -p /etc/trash2
 echo "hello there this time it's serial" >/etc/trash2/message.txt
 
+mkdir -p /etc/systemd/system/rpm-ostreed-automatic.timer.d/
 printf '[Timer]\nOnUnitInactiveSec=1min\nPersistent=true\n' >/etc/systemd/system/rpm-ostreed-automatic.timer.d/override.conf
 
 # Use a COPR Example:
