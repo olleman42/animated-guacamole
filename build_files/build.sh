@@ -10,7 +10,7 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # this installs a package from fedora repos
-dnf5 install -y tmux btop
+dnf5 install -y tmux btop container-selinux
 
 mkdir -p /etc/trash2
 echo "well here I am being a silly boy YEEHAW" >/etc/trash2/message.txt
@@ -18,12 +18,11 @@ echo "well here I am being a silly boy YEEHAW" >/etc/trash2/message.txt
 mkdir -p /etc/systemd/system/rpm-ostreed-automatic.timer.d/
 printf '[Timer]\nOnUnitInactiveSec=1min\nPersistent=true\n' >/etc/systemd/system/rpm-ostreed-automatic.timer.d/override.conf
 
-mkdir -p /var/usr/local/bin
-echo "you've reached me" >/var/usr/local/bin/lol
-cat >/usr/lib/wtf.conf <<EOF
-  echo "lol"
-EOF
+export INSTALL_K3S_BIN_DIR=/usr/bin
+export INSTALL_K3S_SKIP_SELINUX_RPM=true
+bash /ctx/k3s.sh
 #curl -sfL https://get.k3s.io | sh -
+
 # Use a COPR Example:
 #
 # dnf5 -y copr enable ublue-os/staging

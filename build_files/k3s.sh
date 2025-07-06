@@ -549,7 +549,7 @@ setup_binary() {
   chmod 755 ${TMP_BIN}
   info "Installing k3s to ${BIN_DIR}/k3s"
   $SUDO chown root:root ${TMP_BIN}
-  $SUDO cp -f ${TMP_BIN} ${BIN_DIR}/k3s
+  $SUDO mv -f ${TMP_BIN} ${BIN_DIR}/k3s
 }
 
 # --- setup selinux policy ---
@@ -1075,7 +1075,7 @@ get_installed_hashes() {
 systemd_enable() {
   info "systemd: Enabling ${SYSTEM_NAME} unit"
   $SUDO systemctl enable ${FILE_K3S_SERVICE} >/dev/null
-  $SUDO systemctl daemon-reload >/dev/null
+  #$SUDO systemctl daemon-reload >/dev/null
 }
 
 systemd_start() {
@@ -1132,8 +1132,8 @@ service_enable_and_start() {
     fi
   done
 
-  [ "${HAS_SYSTEMD}" = true ] && systemd_start
-  [ "${HAS_OPENRC}" = true ] && openrc_start
+  #[ "${HAS_SYSTEMD}" = true ] && systemd_start
+  #[ "${HAS_OPENRC}" = true ] && openrc_start
   return 0
 }
 
