@@ -18,6 +18,13 @@ echo "well here I am being a silly boy YEEHAW" >/etc/trash2/message.txt
 mkdir -p /etc/systemd/system/rpm-ostreed-automatic.timer.d/
 printf '[Timer]\nOnUnitInactiveSec=1min\nPersistent=true\n' >/etc/systemd/system/rpm-ostreed-automatic.timer.d/override.conf
 
+# install k3s I guess?
+
+export INSTALL_K3S_CHANNEL=latest
+#export INSTALL_K3S_EXEC="server --node-ip=\"$NODE_IP\" --advertise-address=\"$NODE_IP\""
+export K3S_KUBECONFIG_MODE=644
+./ctx/k3s.sh
+#curl -sfL https://get.k3s.io | sh -
 # Use a COPR Example:
 #
 # dnf5 -y copr enable ublue-os/staging
