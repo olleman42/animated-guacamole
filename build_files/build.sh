@@ -106,7 +106,7 @@ xterm-ghostty|ghostty|Ghostty,
         setrgbf=\E[38:2:%p1%d:%p2%d:%p3%dm, smxx=\E[9m,
         xm=\E[<%i%p3%d;%p1%d;%p2%d;%?%p4%tM%em%;,
         xr=\EP>\\|[ -~]+a\E\\,
-' >/usr/share/terminfo/x/xterm-ghostty
+' | tic -x -
 
 # Use a COPR Example:
 #
